@@ -18,6 +18,11 @@ namespace EduSphere.Configurations
                 .IsRequired()
                 .HasMaxLength(100);
 
+            builder.Property(u => u.Password)
+                .IsRequired()
+                .HasMaxLength(256)
+                .HasColumnType("varchar(256)");
+
             builder.Property(u => u.Role)
                 .IsRequired()
                 .HasDefaultValue(UserRole.Student)
@@ -26,7 +31,7 @@ namespace EduSphere.Configurations
 
             builder.HasMany(u => u.Courses)
                 .WithOne(c => c.Instructor)
-                .HasForeignKey(c => c.Instructor.Id);
+                .HasForeignKey(c => c.InstructorId);
 
             builder.HasMany(u => u.Events)
                 .WithOne(e => e.Organizer)

@@ -7,11 +7,11 @@ namespace EduSphere.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class CourseController : ControllerBase
+    public class CoursesController : ControllerBase
     {
         private readonly AppDbContext _context;
 
-        public CourseController(AppDbContext context)
+        public CoursesController(AppDbContext context)
         {
             _context = context;
         }
@@ -53,6 +53,7 @@ namespace EduSphere.Controllers
             await _context.SaveChangesAsync();
 
             return CreatedAtAction(nameof(GetById), new { id = course.Id }, course);
+            //creates 201 HTTP response and provide a URL where the client can retrieve the created resource
         }
 
         //Delete course by id
