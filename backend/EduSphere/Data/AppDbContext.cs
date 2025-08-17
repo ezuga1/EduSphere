@@ -21,6 +21,9 @@ namespace EduSphere.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new CoursesConfiguration());
+            modelBuilder.ApplyConfiguration(new EventsConfiguration());
+            modelBuilder.ApplyConfiguration(new  UsersConfiguration());
+
 
             base.OnModelCreating(modelBuilder);
         }
